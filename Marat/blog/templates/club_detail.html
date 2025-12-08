@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{{ club.name }}{% endblock %}
+
+{% block content %}
+<div class="club-detail">
+    <div class="club-header">
+        {% if club.logo %}
+            <img src="{{ club.logo.url }}" alt="{{ club.name }}" class="club-logo-large">
+        {% endif %}
+        <h1>{{ club.name }}</h1>
+        <p class="club-info">
+            <strong>{% trans "Страна" %}:</strong> {{ club.country }} |
+            <strong>{% trans "Основан" %}:</strong> {{ club.founded }} |
+            <strong>{% trans "Стадион" %}:</strong> {{ club.stadium }}
+        </p>
+    </div>
+
+    <h2>{% trans "Посты о клубе" %}</h2>
+    {% for post in club.posts.all %}
+        <div class="post-preview">
+            <h3><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h3>
+            <p><small>{% blocktrans with author=post.author date=post.date_posted|date:"d.m.Y" %}Автор: {{ author }} | {{ date }}{% endblocktrans %}</small></p>
+            <p>{{ post.content|truncatewords:30 }}</p>
+        </div>
+    {% empty %}
+        <p>{% trans "Пока нет постов о клубе." %}</p>
+    {% endfor %}
+</div>
+{% endblock %}

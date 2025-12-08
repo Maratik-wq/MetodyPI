@@ -1,0 +1,14 @@
+{% load i18n %}
+
+<aside>
+    <h3>{% trans "Последние посты" %}</h3>
+    <ul>
+        {% for post in recent_posts %}
+            <li>
+                <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+            </li>
+        {% empty %}
+            <li>{% trans "Нет постов" %}</li>
+        {% endfor %}
+    </ul>
+</aside>

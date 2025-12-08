@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% load extra_filters %}
+{% load i18n %}
+
+{% block title %}{% trans "Поиск" %}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Поиск по сайту" %}</h1>
+</div>
+
+<form method="get" class="filter-form">
+    <div class="filter-row">
+        <input type="text" name="q" value="{{ search_query }}" placeholder="{% trans 'Поиск...' %}" class="search-input">
+
+        <!-- Клубы -->
+        <select name="club" class="filter-select">
+            <option value="">{% trans "Все клубы" %}</option>
+            {% for club in clubs %}
+                <option value="{{ club.id }}" {% if club.id|stringformat:"s" == selected_club %}selected{% endif %}>{{ club.name }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="country" class="filter-select">
+            <option value="">{% trans "Все страны" %}</option>
+            {% for country in countries %}
+                <option value="{{ country }}" {% if country == selected_country %}selected{% endif %}>{{ country }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Посты -->
+        <select name="post_club" class="filter-select">
+            <option value="">{% trans "Посты: любой клуб" %}</option>
+            {% for club in clubs %}
+                <option value="{{ club.id }}" {% if club.id|stringformat:"s" == selected_post_club %}selected{% endif %}>{{ club.name }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="text" name="author" value="{{ selected_author }}" placeholder="{% trans 'Автор...' %}" class="search-input">
+
+        <select name="year" class="filter-select">
+            <option value="">{% trans "Год" %}</option>
+            {% for year, month, name in available_dates %}
+                <option value="{{ year }}" {% if year|stringformat:"s" == selected_year %}selected{% endif %}>{{ year }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="month" class="filter-select">
+            <option value="">{% trans "Месяц" %}</option>
+            {% for year, month, name in available_dates %}
+                <option value="{{ month }}" {% if month|stringformat:"s" == selected_month %}selected{% endif %}>{{ name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="filter-btn">{% trans "Поиск" %}</button>
+    </div>
+</form>
+
+<!-- РЕЗУЛЬТАТЫ -->
+<div class="search-results">
+    {% for item in results %}
+        {% if item|class_name == 'Club' %}
+            <div class="result-item club">
+                <h3><a href="{% url 'club_detail' item.id %}">{{ item.name }}</a></h3>
+                <p><strong>{% trans "Страна" %}:</strong> {{ item.country }} | <strong>{% trans "Стадион" %}:</strong> {{ item.stadium }}</p>
+            </div>
+        {% elif item|class_name == 'Post' %}
+            <div class="result-item post">
+                <h3><a href="{% url 'post_detail' item.id %}">{{ item.title }}</a></h3>
+                <p><small>{% blocktrans with author=item.author date=item.date_posted|date:"d.m.Y" club_name=item.club.name %}{{ author }} | {{ date }} | {{ club_name }}{% endblocktrans %}</small></p>
+                <p>{{ item.content|truncatewords:20 }}</p>
+            </div>
+        {% endif %}
+    {% empty %}
+        <p class="no-results">{% trans "Ничего не найдено." %}</p>
+    {% endfor %}
+</div>
+{% endblock %}

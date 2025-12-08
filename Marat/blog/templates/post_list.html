@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Все посты" %}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Все посты" %}</h1>
+</div>
+
+<div class="posts-list">
+    {% for post in posts %}
+        <article class="post-preview">
+            <h3><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h3>
+            <p class="meta">
+                <small>{% blocktrans with author=post.author date=post.date_posted|date:"d.m.Y H:i" club_name=post.club.name %}{{ author }} | {{ date }} | {{ club_name }}{% endblocktrans %}</small>
+            </p>
+            <p>{{ post.content|truncatewords:30 }}</p>
+        </article>
+    {% empty %}
+        <p class="no-results">{% trans "Постов нет." %}</p>
+    {% endfor %}
+</div>
+
+{% if is_paginated %}
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="page-link">{% trans "Назад" %}</a>
+    {% endif %}
+    <span class="page-current">{% blocktrans with current_page=page_obj.number total_pages=paginator.num_pages %}Страница {{ current_page }} из {{ total_pages }}{% endblocktrans %}</span>
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="page-link">{% trans "Вперед" %}</a> 
+    {% endif %}
+</div>
+{% endif %} 
+{% endblock %}

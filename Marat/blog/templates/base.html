@@ -1,0 +1,26 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:'ru' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% trans "Мой футбольный блог" %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    {% include 'blocks/header.html' %}
+    <div class="container">
+        <div class="main-content">
+            {% block content %}{% endblock %}
+        </div>
+
+        {% include 'blocks/sidebar.html' %}
+    </div>
+
+    {% include 'blocks/footer.html' %}
+
+</body>
+</html>

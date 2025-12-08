@@ -1,0 +1,38 @@
+{% load i18n %}
+<header>
+    <h1>{% trans "Футбольный блог" %}</h1>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <nav class="site-nav">
+        <a href="/" class="nav-btn">{% trans "Главная" %}</a>
+        <a href="/posts/" class="nav-btn">{% trans "Посты" %}</a>
+        <a href="/search/" class="nav-btn">{% trans "Поиск" %}</a>
+
+        {% if user.is_authenticated %}
+            <span>Привет, {{ user.username }}!</span>
+        <a href="{% url 'logout' %}">Выйти</a>
+        {% else %}
+            <a href="{% url 'login' %}">Вход</a> | 
+            <a href="{% url 'register' %}">Регистрация</a>
+        {% endif %}
+
+        <div class="language-switcher">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% if LANGUAGE_CODE == "ru" %}
+                <a href="/en/{{ request.get_full_path|slice:'4:' }}" class="lang-btn">EN</a>
+                <span class="lang-btn active">RU</span>
+            {% else %}
+                <span class="lang-btn active">EN</span>
+                <a href="/ru/{{ request.get_full_path|slice:'4:' }}" class="lang-btn">RU</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>
+

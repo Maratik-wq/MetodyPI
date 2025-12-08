@@ -1,0 +1,363 @@
+# Russian translations for Football Blog project
+# Copyright (C) 2025
+# This file is distributed under the same license as the package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Football Blog\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-26 22:08+0600\n"
+"PO-Revision-Date: 2025-11-26 23:30+0300\n"
+"Last-Translator: Your Name <you@example.com>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\blog\forms.py:12 .\blog\forms.py:18 .\blog\templates\post_detail.html:63
+msgid "Ваше имя"
+msgstr "Ваше имя"
+
+#: .\blog\forms.py:13
+msgid "Тема комментария"
+msgstr "Тема комментария"
+
+#: .\blog\forms.py:14
+msgid "Текст комментария"
+msgstr "Текст комментария"
+
+#: .\blog\forms.py:22
+msgid "Тема (обязательно)"
+msgstr "Тема (обязательно)"
+
+#: .\blog\forms.py:26
+msgid "Ваш комментарий..."
+msgstr "Ваш комментарий..."
+
+#: .\blog\forms.py:36
+msgid "Пожалуйста, укажите ваше имя."
+msgstr "Пожалуйста, укажите ваше имя."
+
+#: .\blog\forms.py:38
+msgid "Имя слишком длинное (максимум 100 символов)."
+msgstr "Имя слишком длинное (максимум 100 символов)."
+
+#: .\blog\forms.py:44
+msgid "Тема комментария обязательна."
+msgstr "Тема комментария обязательна."
+
+#: .\blog\forms.py:46
+msgid "Тема слишком длинная (максимум 150 символов)."
+msgstr "Тема слишком длинная (максимум 150 символов)."
+
+#: .\blog\forms.py:52
+msgid "Текст комментария не может быть пустым."
+msgstr "Текст комментария не может быть пустым."
+
+#: .\blog\forms.py:54
+msgid "Комментарий слишком длинный (максимум 1000 символов)."
+msgstr "Комментарий слишком длинный (максимум 1000 символов)."
+
+#: .\blog\models.py:5
+msgid "Название клуба"
+msgstr "Название клуба"
+
+#: .\blog\models.py:6 .\blog\templates\club_detail.html:15
+#: .\blog\templates\club_list.html:23
+#: .\blog\templates\filtered_club_list.html:34
+#: .\blog\templates\search_results.html:66
+msgid "Страна"
+msgstr "Страна"
+
+#: .\blog\models.py:7
+msgid "Год основания"
+msgstr "Год основания"
+
+#: .\blog\models.py:8 .\blog\templates\club_detail.html:17
+#: .\blog\templates\club_list.html:25
+#: .\blog\templates\filtered_club_list.html:35
+#: .\blog\templates\search_results.html:66
+msgid "Стадион"
+msgstr "Стадион"
+
+#: .\blog\models.py:9
+msgid "Логотип"
+msgstr "Логотип"
+
+#: .\blog\models.py:16
+msgid "Заголовок"
+msgstr "Заголовок"
+
+#: .\blog\models.py:17
+msgid "Содержание"
+msgstr "Содержание"
+
+#: .\blog\models.py:18
+msgid "Дата публикации"
+msgstr "Дата публикации"
+
+#: .\blog\models.py:19
+msgid "Клуб"
+msgstr "Клуб"
+
+#: .\blog\models.py:20 .\blog\models.py:27
+msgid "Автор"
+msgstr "Автор"
+
+#: .\blog\models.py:28 .\blog\templates\post_detail.html:71
+msgid "Тема"
+msgstr "Тема"
+
+#: .\blog\models.py:29
+msgid "Текст"
+msgstr "Текст"
+
+#: .\blog\models.py:31
+msgid "Опубликован"
+msgstr "Опубликован"
+
+#: .\blog\templates\base.html:8
+msgid "Мой футбольный блог"
+msgstr "Мой футбольный блог"
+
+#: .\blog\templates\blocks\header.html:3
+msgid "Футбольный блог"
+msgstr "Футбольный блог"
+
+#: .\blog\templates\blocks\header.html:7
+msgid "Главная"
+msgstr "Главная"
+
+#: .\blog\templates\blocks\header.html:8
+msgid "Посты"
+msgstr "Посты"
+
+#: .\blog\templates\blocks\header.html:9 .\blog\templates\search_results.html:6
+#: .\blog\templates\search_results.html:56
+msgid "Поиск"
+msgstr "Поиск"
+
+#: .\blog\templates\blocks\header.html:12
+msgid "Привет"
+msgstr "Привет"
+
+#: .\blog\templates\blocks\header.html:13
+msgid "Выйти"
+msgstr "Выйти"
+
+#: .\blog\templates\blocks\header.html:15 .\blog\templates\login.html:3
+#: .\blog\templates\login.html:6
+msgid "Вход"
+msgstr "Вход"
+
+#: .\blog\templates\blocks\header.html:16 .\blog\templates\login.html:12
+#: .\blog\templates\register.html:3 .\blog\templates\register.html:6
+msgid "Регистрация"
+msgstr "Регистрация"
+
+#: .\blog\templates\club_detail.html:16 .\blog\templates\club_list.html:24
+msgid "Основан"
+msgstr "Основан"
+
+#: .\blog\templates\club_detail.html:21
+msgid "Посты о клубе"
+msgstr "Посты о клубе"
+
+#: .\blog\templates\club_detail.html:25
+#, python-format
+msgid "Автор: %(author)s | %(date)s"
+msgstr "Автор: %(author)s | %(date)s"
+
+#: .\blog\templates\club_detail.html:29
+msgid "Пока нет постов о клубе."
+msgstr "Пока нет постов о клубе."
+
+#: .\blog\templates\club_list.html:5
+msgid "Список клубов"
+msgstr "Список клубов"
+
+#: .\blog\templates\club_list.html:9
+msgid "Футбольные клубы"
+msgstr "Футбольные клубы"
+
+#: .\blog\templates\club_list.html:17
+msgid "Логотип отсутствует"
+msgstr "Логотип отсутствует"
+
+#: .\blog\templates\club_list.html:28
+#: .\blog\templates\filtered_club_list.html:36
+msgid "Подробнее"
+msgstr "Подробнее"
+
+#: .\blog\templates\club_list.html:32
+msgid "Клубы ещё не добавлены."
+msgstr "Клубы ещё не добавлены."
+
+#: .\blog\templates\filtered_club_list.html:5
+msgid "Поиск клубов"
+msgstr "Поиск клубов"
+
+#: .\blog\templates\filtered_club_list.html:9
+msgid "Поиск и фильтрация клубов"
+msgstr "Поиск и фильтрация клубов"
+
+#: .\blog\templates\filtered_club_list.html:14
+msgid "Название или страна..."
+msgstr "Название или страна..."
+
+#: .\blog\templates\filtered_club_list.html:16
+#: .\blog\templates\search_results.html:26
+msgid "Все страны"
+msgstr "Все страны"
+
+#: .\blog\templates\filtered_club_list.html:21
+msgid "Найти"
+msgstr "Найти"
+
+#: .\blog\templates\filtered_club_list.html:31
+msgid "Нет логотипа"
+msgstr "Нет логотипа"
+
+#: .\blog\templates\filtered_club_list.html:39
+msgid "Клубы не найдены."
+msgstr "Клубы не найдены."
+
+#: .\blog\templates\filtered_club_list.html:46
+#: .\blog\templates\post_list.html:29
+msgid "Назад"
+msgstr "Назад"
+
+#: .\blog\templates\filtered_club_list.html:48
+#: .\blog\templates\post_list.html:31
+#, python-format
+msgid "Страница %(current_page)s из %(total_pages)s"
+msgstr "Страница %(current_page)s из %(total_pages)s"
+
+#: .\blog\templates\filtered_club_list.html:50
+#: .\blog\templates\post_list.html:33
+msgid "Вперед"
+msgstr "Вперед"
+
+#: .\blog\templates\login.html:10
+msgid "Войти"
+msgstr "Войти"
+
+#: .\blog\templates\login.html:12
+msgid "Нет аккаунта?"
+msgstr "Нет аккаунта?"
+
+#: .\blog\templates\post_detail.html:14
+#, python-format
+msgid ""
+"\n"
+" Автор: <strong>%(author)s</strong> | \n"
+" %(date)s | \n"
+" Клуб: %(club_name)s\n"
+" "
+msgstr ""
+"\n"
+" Автор: <strong>%(author)s</strong> | \n"
+" %(date)s | \n"
+" Клуб: %(club_name)s\n"
+" "
+
+#: .\blog\templates\post_detail.html:28
+#, python-format
+msgid "Комментарий (%(counter)s)"
+msgid_plural "Комментарии (%(counter)s)"
+msgstr[0] "Комментарий (%(counter)s)"
+msgstr[1] "Комментария (%(counter)s)"
+msgstr[2] "Комментариев (%(counter)s)"
+msgstr[3] "Комментариев (%(counter)s)"
+
+#: .\blog\templates\post_detail.html:35
+#, python-format
+msgid "— %(author)s | %(date)s"
+msgstr "— %(author)s | %(date)s"
+
+#: .\blog\templates\post_detail.html:44
+msgid "Пока нет комментариев. Будьте первым!"
+msgstr "Пока нет комментариев. Будьте первым!"
+
+#: .\blog\templates\post_detail.html:51
+msgid "Оставить комментарий"
+msgstr "Оставить комментарий"
+
+#: .\blog\templates\post_detail.html:79
+msgid "Комментарий"
+msgstr "Комментарий"
+
+#: .\blog\templates\post_detail.html:86
+msgid "Отправить комментарий"
+msgstr "Отправить комментарий"
+
+#: .\blog\templates\post_list.html:5 .\blog\templates\post_list.html:9
+msgid "Все посты"
+msgstr "Все посты"
+
+#: .\blog\templates\post_list.html:17 .\blog\templates\search_results.html:71
+#, python-format
+msgid "%(author)s | %(date)s | %(club_name)s"
+msgstr "%(author)s | %(date)s | %(club_name)s"
+
+#: .\blog\templates\post_list.html:22
+msgid "Постов нет."
+msgstr "Постов нет."
+
+#: .\blog\templates\register.html:10
+msgid "Зарегистрироваться"
+msgstr "Зарегистрироваться"
+
+#: .\blog\templates\search_results.html:10
+msgid "Поиск по сайту"
+msgstr "Поиск по сайту"
+
+#: .\blog\templates\search_results.html:15
+msgid "Поиск..."
+msgstr "Поиск..."
+
+#: .\blog\templates\search_results.html:19
+msgid "Все клубы"
+msgstr "Все клубы"
+
+#: .\blog\templates\search_results.html:34
+msgid "Посты: любой клуб"
+msgstr "Посты: любой клуб"
+
+#: .\blog\templates\search_results.html:40
+msgid "Автор..."
+msgstr "Автор..."
+
+#: .\blog\templates\search_results.html:43
+msgid "Год"
+msgstr "Год"
+
+#: .\blog\templates\search_results.html:50
+msgid "Месяц"
+msgstr "Месяц"
+
+#: .\blog\templates\search_results.html:76
+msgid "Ничего не найдено."
+msgstr "Ничего не найдено."
+
+#: .\blog\views.py:131
+msgid "Ваш комментарий отправлен на модерацию!"
+msgstr "Ваш комментарий отправлен на модерацию!"
+
+#: .\blog\views.py:151
+msgid "Регистрация прошла успешно! Добро пожаловать!"
+msgstr "Регистрация прошла успешно! Добро пожаловать!"
+
+msgid "Футбольный блог. Все права защищены."
+msgstr "Футбольный блог. Все права защищены."
+
+#: blog/templates/blocks/sidebar.html:XX
+msgid "Последние посты"
+msgstr "Последние посты"
+
+#: blog/templates/blocks/sidebar.html:XX
+msgid "Нет постов"
+msgstr "Нет постов"
+

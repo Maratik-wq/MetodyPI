@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Поиск клубов" %}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{% trans "Поиск и фильтрация клубов" %}</h1>
+</div>
+
+<form method="get" class="filter-form">
+    <div class="filter-row">
+        <input type="text" name="search" value="{{ search_query }}" placeholder="{% trans 'Название или страна...' %}" class="search-input">
+        <select name="country" class="filter-select">
+            <option value="">{% trans "Все страны" %}</option>
+            {% for country in countries %}
+                <option value="{{ country }}" {% if country == selected_country %}selected{% endif %}>{{ country }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="filter-btn">{% trans "Найти" %}</button>
+    </div>
+</form>
+
+<div class="clubs-grid">
+    {% for club in clubs %}
+        <div class="club-card">
+            {% if club.logo %}
+                <img src="{{ club.logo.url }}" alt="{{ club.name }}" class="club-logo">
+            {% else %}
+                <div class="no-logo">{% trans "Нет логотипа" %}</div>
+            {% endif %}
+            <h3><a href="{% url 'club_detail' club.id %}">{{ club.name }}</a></h3>
+            <p><strong>{% trans "Страна" %}:</strong> {{ club.country }}</p>
+            <p><strong>{% trans "Стадион" %}:</strong> {{ club.stadium }}</p>
+            <a href="{% url 'club_detail' club.id %}" class="btn">{% trans "Подробнее" %}</a>
+        </div>
+    {% empty %}
+        <p class="no-results">{% trans "Клубы не найдены." %}</p>
+    {% endfor %}
+</div>
+
+{% if is_paginated %}
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}&search={{ search_query }}&country={{ selected_country }}" class="page-link">{% trans "Назад" %}</a>
+    {% endif %}
+    <span class="page-current">{% blocktrans with current_page=page_obj.number total_pages=paginator.num_pages %}Страница {{ current_page }} из {{ total_pages }}{% endblocktrans %}</span>
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}&search={{ search_query }}&country={{ selected_country }}" class="page-link">{% trans "Вперед" %}</a>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

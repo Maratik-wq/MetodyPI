@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Список клубов" %}{% endblock %}
+
+{% block content %}
+<div class="club-list">
+    <h1>{% trans "Футбольные клубы" %}</h1>
+
+    <div class="clubs-grid">
+        {% for club in clubs %}
+            <div class="club-card">
+                {% if club.logo %}
+                    <img src="{{ club.logo.url }}" alt="{{ club.name }} logo" class="club-logo">
+                {% else %}
+                    <div class="no-logo">{% trans "Логотип отсутствует" %}</div>
+                {% endif %}
+
+                <h3>
+                    <a href="{% url 'club_detail' club.id %}">{{ club.name }}</a>
+                </h3>
+                <p><strong>{% trans "Страна" %}:</strong> {{ club.country }}</p>
+                <p><strong>{% trans "Основан" %}:</strong> {{ club.founded }}</p>
+                <p><strong>{% trans "Стадион" %}:</strong> {{ club.stadium }}</p>
+
+                <p>
+                    <a href="{% url 'club_detail' club.id %}" class="btn">{% trans "Подробнее" %} →</a>
+                </p>
+            </div>
+        {% empty %}
+            <p>{% trans "Клубы ещё не добавлены." %}</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
